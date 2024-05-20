@@ -54,8 +54,6 @@ int board_usb_cleanup(int index, enum usb_init_type init)
 
 int xhci_hcd_init(int index, struct xhci_hccr **hccr, struct xhci_hcor **hcor)
 {
-
-
 	int ret = board_usb_init(index, USB_INIT_HOST);
 	if (ret != 0) {
 		puts("Failed to initialize board for USB\n");
