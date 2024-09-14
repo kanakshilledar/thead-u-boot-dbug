@@ -1079,7 +1079,9 @@ unsigned int get_mails(void)
 	do{
         //read = (unsigned int)(*(volatile unsigned short*)(0xfe7a0008));
         read = ddr_phy_reg_rd(0xd0004);
+        printf("\t[***]randi read: %d\n", read);
     }while((read&0x1) == 1);
+    printf("\t[***]randi After loop: %d\n", read);
 
 	//read msg
     //msg0 = (unsigned int)(*(volatile unsigned short*)(0xfe7a0064));
@@ -1096,7 +1098,9 @@ unsigned int get_mails(void)
 	do{
         //read = (unsigned int)(*(volatile unsigned short*)(0xfe7a0008));
         read = ddr_phy_reg_rd(0xd0004);
+        printf("\t[***] read: %d\n", read);
     }while((read&0x1) == 0);
+    printf("\t[***] After loop: %d\n", read);
 	
 	//re-enable
 	//*(volatile unsigned short*)(0xfe7a0062) = 1;

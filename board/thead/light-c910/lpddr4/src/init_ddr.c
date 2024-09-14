@@ -6,6 +6,9 @@ const char board_name[] = "FM";
 
 void init_ddr(void)
 {
+    printf("*************************************\n");
+	printf("[*] Entered lpddr4/src/init_ddr(void)\n");
+	printf("*************************************\n");
     enum DDR_TYPE type = DDR_TYPE_LPDDR4X;
     int freq = 3733;
     int rank_num = 1;

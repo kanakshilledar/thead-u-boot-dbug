@@ -473,6 +473,9 @@ static void light_board_init_r(gd_t *gd, ulong dummy)
 
 void board_init_f(ulong dummy)
 {
+	printf("*************************************\n");
+	printf("[*] Entered board_init_f(ulong dummy)\n");
+	printf("*************************************\n");
 	int ret;
 
 	light_pre_reset_config();
@@ -487,6 +490,9 @@ void board_init_f(ulong dummy)
 	arch_cpu_init_dm();
 	light_post_reset_config();
 	preloader_console_init();
+	printf("*************************************\n");
+	printf("[1] Entered board_init_f(ulong dummy)\n");
+	printf("*************************************\n");
 
 #ifdef CONFIG_PMIC_VOL_INIT
 	ret = aon_local_init();
@@ -508,8 +514,12 @@ void board_init_f(ulong dummy)
 	}
 #endif
 	ddr_clk_config(0);
+	printf("*************************************\n");
+	printf("[2] Entered board_init_f(ulong dummy)\n");
+	printf("*************************************\n");
 	cpu_clk_config(0);
 
+	printf("[*] init_ddr()\n");
 	init_ddr();
 	setup_ddr_scramble();
 	setup_ddr_parity();

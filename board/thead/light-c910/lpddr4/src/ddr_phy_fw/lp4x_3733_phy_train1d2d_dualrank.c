@@ -4,6 +4,9 @@
 #include "../../include/waitfwdone.h" 
 
 void lp4_phy_train1d2d(enum DDR_TYPE type, int speed, enum DDR_BITWIDTH bits) {
+    printf("*************************************\n");
+	printf("\t[*] board/thead/light-c910/lpddr4/src/ddr_phy_fw/lp4x_3733_phy_train1d2d_dualrank.c\n");
+	printf("*************************************\n");
     if(type != DDR_TYPE_LPDDR4X || speed != 3733)
     {
         printf("unsupport ddr type<lpddr4%c>, speed<%d>\n", (type==DDR_TYPE_LPDDR4X?'x':' '), speed);
@@ -34474,7 +34477,7 @@ ddr_phy_reg_wr(0xd0000,0x0);
 ddr_phy_reg_wr(0xd0000,0x1);
 ddr_phy_reg_wr(0xd0000,0x0);
 
-#ifdef CONFIG_DDR_MSG
+// #ifdef CONFIG_DDR_MSG
 printf("TrainedVREFDQ_RANK0 is %0x \n",0xff&(ddr_phy_reg_rd(0x54026)>>8));
 printf("TrainedVREFDQ_RANK1 is %0x \n",0xff&(ddr_phy_reg_rd(0x54027)));
 printf("RxClkDly_Margin_A0   is %0x \n",0xff&(ddr_phy_reg_rd(0x54027)>>8));
@@ -34496,7 +34499,7 @@ printf("RxClkDly_Margin_A1   is %0x \n",0xff&(ddr_phy_reg_rd(0x54043)));
 printf("VrefDac_Margin_A1    is %0x \n",0xff&(ddr_phy_reg_rd(0x54043)>>8));
 printf("TxDqDly_Margin_A1    is %0x \n",0xff&(ddr_phy_reg_rd(0x54044)));
 printf("DeviceVref_Margin_A1 is %0x \n",0xff&(ddr_phy_reg_rd(0x54044)>>8));
-#endif
+// #endif
 ddr_phy_reg_wr(0x90000,0x10);
 ddr_phy_reg_wr(0x90001,0x400);
 ddr_phy_reg_wr(0x90002,0x10e);

@@ -57,6 +57,9 @@ void cpu_clk_config(uint32_t cpu_freq)
 
 void sys_clk_config(void)
 {
+	printf("*************************************\n");
+	printf("[*] Entered sys_clk_config(void)\n");
+	printf("*************************************\n");
 #ifndef CONFIG_TARGET_LIGHT_FPGA_FM_C910 /* for sillicon */
 	unsigned int tmp;
 
@@ -288,6 +291,9 @@ void sys_clk_config(void)
 	tmp |= 0x30;
 	writel(tmp, (void *)LIGHT_APCLK_ADDRBASE + 0x1c8);
 
+	printf("*************************************\n");
+	printf("[*] Exit lpddr4/src/init_ddr(void)\n");
+	printf("*************************************\n");
 	/* The boards other than the LightA board perform the bus down-speed operation */
 
 #if defined (CONFIG_TARGET_LIGHT_FM_C910_VAL_ANT_DISCRETE) || defined (CONFIG_TARGET_LIGHT_FM_C910_B_REF) || defined (CONFIG_TARGET_LIGHT_FM_C910_VAL_ANT_REF) || defined (CONFIG_TARGET_LIGHT_FM_C910_B_POWER) || defined (CONFIG_TARGET_LIGHT_FM_C910_VAL_B)

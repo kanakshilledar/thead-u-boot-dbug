@@ -358,7 +358,12 @@ void enable_auto_refresh() {
   ddr_sysreg_wr(DDR_CFG0+0xc,0x0b000000);
  } else if(speed==3733) {
  //3733
+  printf("*************************************\n");
+	printf("[*] Entered lpddr4/src/ddr_common_func.c/pll_config(int speed)\n");
+	printf("*************************************\n");
+  printf("\t[+] DDR_CFG0+0xc value: %u\n", ddr_sysreg_rd(DDR_CFG0+0xc));
   ddr_sysreg_wr(DDR_CFG0+0xc,0x4b000000);
+  printf("\t[+] DDR_CFG0+0xc value: %u\n", ddr_sysreg_rd(DDR_CFG0+0xc));
   ddr_sysreg_wr(DDR_CFG0+0x8,0x01204d01);
   udelay(2);
   ddr_sysreg_wr(DDR_CFG0+0xc,0x0b000000);
@@ -373,7 +378,7 @@ void enable_auto_refresh() {
  } else {
 #ifdef CONFIG_DDR_MSG
  printf("Reserved Pll setting\n");
-#endif
+#endif  
   ddr_sysreg_wr(DDR_CFG0+0xc,0x4b000000);
   ddr_sysreg_wr(DDR_CFG0+0x8,0x01606601);
   ddr_sysreg_wr(DDR_CFG0+0xc,0x0b000000);
@@ -381,8 +386,10 @@ void enable_auto_refresh() {
 #ifdef CONFIG_DDR_MSG
   printf("Freq    is %0x \n",ddr_sysreg_rd(DDR_CFG0+0x8));
 #endif
+  printf("*************************************\n");
   while((ddr_sysreg_rd(DDR_CFG0+0x18)&1)!=0x1); //pll lock
   ddr_sysreg_wr(DDR_CFG0+0x18,0x10000);// core clock cg off
+  printf("*************************************\n");
  }
 
  void ctrl_en(enum DDR_BITWIDTH bits) {
